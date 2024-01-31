@@ -1,5 +1,7 @@
 from modules.utilities import save_html, send_reply, generate_document_message_payload, generate_template_message_payload, generate_text_message_payload
 
+hosting_website_url = "https://c0f8491e-00ec-4b7c-a9b5-5243ca2d7cfe-00-232osg9o9qw7p.picard.replit.dev"
+
 def handle_help_command(contact_id):
   try:
     send_reply(generate_template_message_payload(contact_id, "help_template"))
@@ -11,7 +13,7 @@ def handle_google_command(contact_id, query):
   try:
     save_html(f"https://google.com/search?q={'+'.join(query.split())}",'static/google.html')
     send_reply(generate_document_message_payload(contact_id,
-                                                "https://c0f8491e-00ec-4b7c-a9b5-5243ca2d7cfe-00-232osg9o9qw7p.picard.replit.dev/file/google.html",
+                                                f"{hosting_website_url}/file/google.html",
                                                 query,
                                                 f"google-{'-'.join(query.split())}.html"))
   except Exception as e:
@@ -22,7 +24,7 @@ def handle_google_image_command(contact_id, query):
   try:
     save_html(f"https://google.com/search?tbm=isch&q={'+'.join(query.split())}",'static/google.html')
     send_reply(generate_document_message_payload(contact_id,
-                                                "https://c0f8491e-00ec-4b7c-a9b5-5243ca2d7cfe-00-232osg9o9qw7p.picard.replit.dev/file/google.html",
+                                                f"{hosting_website_url}/file/google.html",
                                                 query,
                                                 f"google-image-{'-'.join(query.split())}.html"))
   except Exception as e:
@@ -33,7 +35,7 @@ def handle_yahoo_command(contact_id, query):
   try:
     save_html(f"https://search.yahoo.com/search?p={'+'.join(query.split())}",'static/yahoo.html')
     send_reply(generate_document_message_payload(contact_id,
-                                                "https://c0f8491e-00ec-4b7c-a9b5-5243ca2d7cfe-00-232osg9o9qw7p.picard.replit.dev/file/yahoo.html",
+                                                f"{hosting_website_url}/file/yahoo.html",
                                                 query,
                                                 f"yahoo-{'-'.join(query.split())}.html"))
   except Exception as e:
@@ -47,7 +49,7 @@ def handle_url_command(contact_id, words):
     try:
       save_html(words[1], 'static/url.html')
       send_reply(generate_document_message_payload(contact_id,
-                                                  "https://c0f8491e-00ec-4b7c-a9b5-5243ca2d7cfe-00-232osg9o9qw7p.picard.replit.dev/file/url.html",
+                                                  f"{hosting_website_url}/file/url.html",
                                                   words[1],
                                                   f"url-{words[1]}.html"))
     except Exception as e:
@@ -58,7 +60,7 @@ def handle_urban_command(contact_id, query):
   try:
     save_html(f"https://www.urbandictionary.com/define.php?term={'+'.join(query.split())}", 'static/urban.html')
     send_reply(generate_document_message_payload(contact_id,
-                                                "https://c0f8491e-00ec-4b7c-a9b5-5243ca2d7cfe-00-232osg9o9qw7p.picard.replit.dev/file/urban.html",
+                                                f"{hosting_website_url}/file/urban.html",
                                                 query,
                                                 f"urban-{'-'.join(query.split())}.html"))
   except Exception as e:
