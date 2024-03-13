@@ -66,7 +66,7 @@ python3 main.py
 - `/spanish <expression>` Get the spanish translation and pronounciation of an expression.  
   *Example: /spanish I would like to get a pizza*
 
-- `/tts <expression>` Generate text to speech of a phrase.  
+- `/tts <expression>` Generate language-aware text to speech from a sentence.  
   *Example: /tts hello your computer has virus*
 
 ## License
