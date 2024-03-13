@@ -14,3 +14,6 @@ requests==2.31.0
 soupsieve==2.5
 urllib3==2.1.0
 Werkzeug==3.0.1
+gTTS==2.5.1
+googletrans==langdetect3.0.0
+langdetect==1.0.9 

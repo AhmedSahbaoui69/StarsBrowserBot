@@ -62,6 +62,12 @@ python3 main.py
 
 - `/urban <term>` Get the Urban Dictionary definition of a term.  
   *Example: /urban amogus*
+  
+- `/spanish <expression>` Get the spanish translation and pronounciation of an expression.  
+  *Example: /spanish I would like to get a pizza*
+
+- `/tts <expression>` Generate text to speech of a phrase.  
+  *Example: /tts hello your computer has virus*
 
 ## License
 
