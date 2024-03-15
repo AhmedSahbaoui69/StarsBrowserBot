@@ -1,7 +1,11 @@
-from modules.utilities import save_html, send_reply, generate_document_message_payload, generate_template_message_payload, generate_text_message_payload, translate_to_spanish, generate_text_button_message_payload, generate_audio_message_payload, text_to_speech
 import os
+import json
+from modules.utilities import save_html, send_reply, generate_document_message_payload, generate_template_message_payload, generate_text_message_payload, translate_to_spanish, generate_text_button_message_payload, generate_audio_message_payload, text_to_speech, get_tram_ArrTime
 
 REPLIT_URL = os.environ['REPLIT_URL']
+with open("static/tram_stops/stops.json", 'r') as f:
+  tram_stops = json.load(f)
+
 
 def handle_help_command(contact_id):
   try:
@@ -96,6 +100,15 @@ def handle_tts_command(contact_id, expression):
     send_reply(generate_text_message_payload(contact_id, f"Error: {str(e)}"))
 
 
+def handle_tram_command(contact_id, stop_name):
+  try:
+    send_reply(
+        generate_text_message_payload(contact_id,
+                                      get_tram_ArrTime(tram_stops, stop_name)))
+  except Exception as e:
+    send_reply(generate_text_message_payload(contact_id, f"Error: {str(e)}"))
+
+
 def build_response(value):
   if 'messages' in value and value['messages'][0]['type'] in [
       'text', 'button', 'interactive'
@@ -137,22 +150,27 @@ def build_response(value):
       query = message_body.split(maxsplit=1)[1]
       handle_yahoo_command(contact_id, query)
 
-    # /url command
+    # url command
     elif message_body.lower().startswith('/url'):
       words = message_body.split()
       handle_url_command(contact_id, words)
 
-    # /spanish command
+    # spanish command
     elif message_body.lower().startswith('/spanish'):
       expression = message_body.split(maxsplit=1)[1]
       handle_spanish_command(contact_id, expression)
 
-    # /tts command
+    # tts command
     elif message_body.lower().startswith('/tts'):
       expression = message_body.split(maxsplit=1)[1]
       handle_tts_command(contact_id, expression)
 
-    # /urban command
+    # urban command
     elif message_body.lower().startswith('/urban'):
       query = message_body.split(maxsplit=1)[1]
       handle_urban_command(contact_id, query)
+
+    # tram command
+    elif message_body.lower().startswith('/tram'):
+      query = message_body.split(maxsplit=1)[1]
+      handle_tram_command(contact_id, query)
