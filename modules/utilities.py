@@ -212,7 +212,7 @@ def get_tram_ArrTime(tram_stops, stop_name):
   if response.status_code == 200:
     data = response.json()["items"]
 
-    line = 'T2' if "T2_0" in data.get("items", {}) else 'T1'
+    line = 'T2' if "T2_0" in data else 'T1'
     ArrTime_0 = data[f'{line}_0']['Schedule'][0]['ArrTime'].split()[1]
     ArrTime_0_next = data[f'{line}_0']['Schedule'][1]['ArrTime'].split()[1]
     To_stop_name_0 = data[f'{line}_0']['Schedule'][0]['to_stop_name']
