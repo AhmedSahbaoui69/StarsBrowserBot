@@ -60,16 +60,16 @@ python3 main.py
 - `/url <url>` Retrieve the HTML content of a specified URL.  
   *Example: /url https://en.wikipedia.org/wiki/Adolf_Hitler*
 
-- `/urban <term>` Get the Urban Dictionary definition of a term.
+- `/urban <term>` Get the Urban Dictionary definition of a term.  
   *Example: /urban amogus*
   
-- `/spanish <expression>` Get the spanish translation and pronounciation of an expression.
+- `/spanish <expression>` Get the spanish translation and pronounciation of an expression.  
   *Example: /spanish I would like to get a pizza*
 
-- `/tts <expression>` Generate language-aware text to speech from a sentence.
+- `/tts <expression>` Generate language-aware text to speech from a sentence.  
   *Example: /tts hello your computer has virus*
 
-- `/tram <stop>` Retrieve arrival times for a specified Tramway stop in Casablanca.
+- `/tram <stop>` Retrieve arrival times for a specified Tramway stop in Casablanca.  
   *Example: /tram Anoual*
 
 ## License
